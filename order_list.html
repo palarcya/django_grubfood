@@ -1,0 +1,15 @@
+{% extends 'webkiosk/base_template.html' %}
+
+{% block pagetitle %}GrubFood - Order List{% endblock %}
+
+{% block maincontent %}
+<h1>Order List</h1>
+
+<ol>
+{% for order in orderlist %}
+
+<li class="list"><b>{{ order.customer.firstname }} {{ order.customer.lastname }}</b>- {{ order.orderdatetime }}  <br>  <a href="{% url 'webkiosk:order-detail' order.id %}">More Info</a> |<a href="{% url 'webkiosk:order-update' order.id %}"> Edit </a>| <a href="{% url 'webkiosk:order-delete' order.id %}"> Delete </a></li>
+
+{% endfor %}
+</ol>
+{% endblock %}

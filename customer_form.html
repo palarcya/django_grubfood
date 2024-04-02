@@ -1,0 +1,19 @@
+{% extends 'webkiosk/base_template.html' %}
+
+{% block pagetitle %}GrubFood - Add or Update Customer {% endblock %}
+
+{% block maincontent %}
+<h1 class="form">Add or Update Customer</h1>
+
+<form method="post"> <!--making a post request-->
+    {% csrf_token %} <!--cross site request forgery-->
+    {{ form.as_ul }} <!--same as views context-->
+    <input type="submit" value="Submit">
+</form>
+
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block pagetitle %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'webkiosk/styles/main.css' %}?{% now "U" %}">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <header>
+            <nav>
+                <img id = "logo" src="{% static 'webkiosk/images/logo.png' %}">
+                <ul>
+                    <li><a href="{% url 'webkiosk:index'%}">Home</a></li>
+                    <li><a href="{% url 'webkiosk:food-list'%}">Food</a></li>
+                    <li><a href="{% url 'webkiosk:food-create'%}">Add Food</a></li>
+                    <li><a href="{% url 'webkiosk:customer-list'%}">Customers</a></li>
+                    <li><a href="{% url 'webkiosk:customer-create'%}">Add Customer</a></li>
+                    <li><a href="{% url 'webkiosk:order-list'%}">Orders</a></li>
+                    <li><a href="{% url 'webkiosk:order-create'%}">Add Orders</a></li>    
+                    <li><a href="{% url 'webkiosk:log-out'%}">Log-out</a></li>       
+                </ul>
+            </nav>
+            
+            <section id="statement"> 
+                <h1>FoodBoard</h1>
+                <p id="tagline">The Kitchen Management Dream</p>
+            </section>
+        </header>
+
+
+
+        <main>
+            {% block maincontent %}
+            
+            {% endblock %}
+        </main>
+    </body>
+</html>
+

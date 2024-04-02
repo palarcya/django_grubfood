@@ -1,0 +1,19 @@
+{% extends 'webkiosk/base_template.html' %}
+
+{% block pagetitle %}User Profile{% endblock %}
+
+{% block maincontent %}
+<h1>User Profile</h1>
+
+<ol>
+    {% for order in orderlist %}
+
+    <li class ="list"><b>{{ order.customer }}</b>
+    <br> 
+    {{ order.food }}
+    <br>  
+    <a href="{% url 'webkiosk:order-detail' order.id %}"><u>More Info</u></a> | <a href="{% url 'webkiosk:order-update' order.id %}"><u>Edit</u></a> | <a href="{% url 'webkiosk:order-delete' order.id %}"><u>Delete</u></a></li>
+
+    {% endfor %}
+</ol>
+{% endblock %}

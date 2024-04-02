@@ -1,0 +1,24 @@
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block pagetitle %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'webkiosk/styles/main.css' %}?{% now "U" %}">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto&display=swap" rel="stylesheet">
+
+    </head>
+<h1>Log-in</h1>
+<body class="registration"> 
+    <form method="POST" action="">
+        {% csrf_token %}
+
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" name="Create User">
+    </form>
+
+    {% for message in messages %}
+        <p class="message">{{message}}</p>
+    {% endfor %}
+    <a id="account" href="{% url 'webkiosk:register-user'%}"><h2>Create an Account</h2></a>
+</body>

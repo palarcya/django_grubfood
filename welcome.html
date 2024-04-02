@@ -1,0 +1,14 @@
+{% extends 'webkiosk/base_template.html' %}
+{% load static %}
+
+{% block pagetitle %}GrubFood Web Kiosk{% endblock %}
+
+{% block maincontent %}
+<h1 class="question">Which page would you like to manage?</h1>
+
+<section id="images"> 
+     <a href="{% url 'webkiosk:customer-list'%}"><img class="maindash" src="{% static 'webkiosk/images/customer.png' %}"></a>
+     <a href="{% url 'webkiosk:food-list'%}"><img class="maindash" src="{% static 'webkiosk/images/food.png' %}"></a>
+     <a href="{% url 'webkiosk:order-list'%}"><img class="maindash" src="{% static 'webkiosk/images/order.png' %}"></a>   
+</section>
+{% endblock %}

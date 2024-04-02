@@ -1,0 +1,15 @@
+{% extends 'webkiosk/base_template.html' %}
+
+{% block pagetitle %}GrubFood - {{ order.name }}{% endblock %}
+
+{% block maincontent %}
+<h1>{{ order.customer.firstname }} {{ order.customer.lastname}} </h1>
+
+<ul>
+    <li>Order Number: {{ order.id }}</li>
+    <li>Date and Time of Order: {{ order.orderdatetime }}</li> 
+    <li>Food: {{ order.food.name }} </li> 
+    <li>Quantity: {{ order.quantity }}</li>
+    <li>Total Price: P{{ order.totalprice }}</li>
+</ul>
+{% endblock %}
